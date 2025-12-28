@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-/* Hero Section */
+/* hero */
 .hero-section {
   position: relative;
   width: 100vw;
@@ -47,7 +47,6 @@ body {
   opacity: 0.6;
 }
 
-/* Hero Content */
 .hero-content {
   position: absolute;
   top: 50%;
@@ -125,7 +124,7 @@ body {
   font-style: italic;
 }
 
-/* Landmark Silhouettes */
+/* floating icons */
 .landmark-silhouette {
   position: absolute;
   opacity: 0.15;
@@ -168,7 +167,7 @@ body {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160"><path d="M30 150 L30 60 L40 40 L45 20 L40 0 M60 150 L60 50 L60 10 M90 150 L90 60 L80 40 L75 20 L80 0" stroke="%23b8956a" stroke-width="2" fill="none"/><circle cx="30" cy="50" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/><circle cx="60" cy="40" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/><circle cx="90" cy="50" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/></svg>');
 }
 
-/* Landmark Sections - Split Screen Layout */
+/* sections */
 .landmark-section {
   position: relative;
   min-height: 100vh;
@@ -178,17 +177,14 @@ body {
   overflow: hidden;
 }
 
-/* Image Left Layout */
 .landmark-section.image-left {
   flex-direction: row;
 }
 
-/* Image Right Layout */
 .landmark-section.image-right {
   flex-direction: row-reverse;
 }
 
-/* Landmark Image - Fixed Parallax */
 .landmark-image {
   flex: 1;
   position: sticky;
@@ -230,7 +226,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Landmark Content */
 .landmark-content {
   flex: 1;
   position: relative;
@@ -310,7 +305,6 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
-/* Parallax Breaks */
 .parallax-break {
   position: relative;
   height: 70vh;
