@@ -1,0 +1,656 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: #0d0d12;
+  color: #e8e4d9;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.layer-back {
+  background: radial-gradient(ellipse at center, rgba(40, 40, 55, 0.3) 0%, rgba(13, 13, 18, 0.9) 70%, #0d0d12 100%);
+  z-index: 1;
+}
+
+.layer-mid {
+  background: radial-gradient(circle at 30% 50%, rgba(180, 149, 106, 0.08) 0%, transparent 50%);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.layer-front {
+  background: radial-gradient(circle at 70% 50%, rgba(180, 149, 106, 0.05) 0%, transparent 50%);
+  z-index: 3;
+  opacity: 0.6;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.ornament-top,
+.ornament-bottom {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b8956a, #d4af37, #b8956a, transparent);
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(180, 149, 106, 0.6);
+}
+
+.ornament-top {
+  margin-bottom: 2.5rem;
+}
+
+.ornament-bottom {
+  margin-top: 2.5rem;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(180, 149, 106, 0.6);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.9);
+    opacity: 1;
+  }
+}
+
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #f5f0e6;
+  letter-spacing: 0.25em;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(180, 149, 106, 0.3);
+  margin: 1rem 0;
+  animation: titlePulse 6s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(180, 149, 106, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(212, 175, 55, 0.5);
+  }
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #b8956a;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Landmark Silhouettes */
+.landmark-silhouette {
+  position: absolute;
+  opacity: 0.15;
+  filter: drop-shadow(0 0 20px rgba(180, 149, 106, 0.4));
+  z-index: 50;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.eiffel {
+  width: 100px;
+  height: 200px;
+  left: 15%;
+  top: 25%;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M50 0 L55 50 L65 150 L60 200 L40 200 L35 150 L45 50 Z M30 80 L70 80 M35 120 L65 120 M40 160 L60 160" stroke="%23b8956a" stroke-width="2" fill="none"/></svg>');
+}
+
+.colosseum {
+  width: 150px;
+  height: 100px;
+  right: 10%;
+  top: 35%;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 100"><ellipse cx="75" cy="50" rx="70" ry="45" stroke="%23b8956a" stroke-width="2" fill="none"/><path d="M20 30 L20 70 M40 20 L40 80 M60 15 L60 85 M90 15 L90 85 M110 20 L110 80 M130 30 L130 70" stroke="%23b8956a" stroke-width="1.5" fill="none"/></svg>');
+}
+
+.bigben {
+  width: 80px;
+  height: 180px;
+  left: 8%;
+  bottom: 20%;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 180"><rect x="25" y="40" width="30" height="100" stroke="%23b8956a" stroke-width="2" fill="none"/><path d="M20 30 L60 30 L55 40 L25 40 Z" stroke="%23b8956a" stroke-width="2" fill="none"/><circle cx="40" cy="20" r="15" stroke="%23b8956a" stroke-width="2" fill="none"/><line x1="40" y1="20" x2="40" y2="10" stroke="%23b8956a" stroke-width="2"/></svg>');
+}
+
+.sagrada {
+  width: 120px;
+  height: 160px;
+  right: 20%;
+  bottom: 25%;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160"><path d="M30 150 L30 60 L40 40 L45 20 L40 0 M60 150 L60 50 L60 10 M90 150 L90 60 L80 40 L75 20 L80 0" stroke="%23b8956a" stroke-width="2" fill="none"/><circle cx="30" cy="50" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/><circle cx="60" cy="40" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/><circle cx="90" cy="50" r="5" stroke="%23b8956a" stroke-width="1" fill="none"/></svg>');
+}
+
+/* Landmark Sections - Split Screen Layout */
+.landmark-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #0d0d12;
+  overflow: hidden;
+}
+
+/* Image Left Layout */
+.landmark-section.image-left {
+  flex-direction: row;
+}
+
+/* Image Right Layout */
+.landmark-section.image-right {
+  flex-direction: row-reverse;
+}
+
+/* Landmark Image - Fixed Parallax */
+.landmark-image {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(180, 149, 106, 0.08) 0%, rgba(13, 13, 18, 0.95) 70%);
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.landmark-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(45deg, transparent 30%, rgba(180, 149, 106, 0.03) 50%, transparent 70%),
+    radial-gradient(circle at center, transparent 40%, rgba(13, 13, 18, 0.6) 100%);
+  z-index: 1;
+}
+
+.landmark-image img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5))
+          drop-shadow(0 0 30px rgba(180, 149, 106, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.landmark-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Landmark Content */
+.landmark-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  min-height: 100vh;
+}
+
+.content-inner {
+  max-width: 650px;
+  width: 100%;
+}
+
+.location-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #8b7355;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.decorative-line {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(to right, #b8956a, #d4af37, #b8956a);
+  margin: 2rem 0;
+  box-shadow: 0 0 10px rgba(180, 149, 106, 0.4);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #f5f0e6;
+  letter-spacing: 0.12em;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(180, 149, 106, 0.2);
+  margin: 1.5rem 0;
+  line-height: 1.2;
+}
+
+.year-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #b8956a;
+  letter-spacing: 0.15em;
+  margin-top: 0.8rem;
+}
+
+.text-content {
+  margin-top: 3rem;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #d4cfbf;
+  margin-bottom: 1.8rem;
+  text-align: justify;
+  letter-spacing: 0.02em;
+}
+
+.text-content p:first-of-type::first-letter {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #d4af37;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.5rem;
+  margin-top: 0.1em;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Parallax Breaks */
+.parallax-break {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.break-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Eiffel Tower Break */
+.break-eiffel .layer-1 {
+  background: linear-gradient(rgba(13, 13, 18, 0.6), rgba(13, 13, 18, 0.6)),
+              url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1920');
+  z-index: 1;
+}
+
+.break-eiffel .layer-2 {
+  background: linear-gradient(rgba(40, 40, 55, 0.4), rgba(40, 40, 55, 0.4)),
+              url('https://images.unsplash.com/photo-1549144511-f099e773c147?w=1920');
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Colosseum Break */
+.break-colosseum .layer-3 {
+  background: linear-gradient(rgba(13, 13, 18, 0.6), rgba(13, 13, 18, 0.6)),
+              url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1920');
+  z-index: 1;
+}
+
+.break-colosseum .layer-4 {
+  background: linear-gradient(rgba(40, 40, 55, 0.4), rgba(40, 40, 55, 0.4)),
+              url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=1920');
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Neuschwanstein Break */
+.break-neuschwanstein .layer-5 {
+  background: linear-gradient(rgba(13, 13, 18, 0.6), rgba(13, 13, 18, 0.6)),
+              url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920');
+  z-index: 1;
+}
+
+.break-neuschwanstein .layer-6 {
+  background: linear-gradient(rgba(40, 40, 55, 0.4), rgba(40, 40, 55, 0.4)),
+              url('https://images.unsplash.com/photo-1598090986146-de11faa72df8?w=1920');
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Big Ben Break */
+.break-bigben .layer-7 {
+  background: linear-gradient(rgba(13, 13, 18, 0.6), rgba(13, 13, 18, 0.6)),
+              url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1920');
+  z-index: 1;
+}
+
+.break-bigben .layer-8 {
+  background: linear-gradient(rgba(40, 40, 55, 0.4), rgba(40, 40, 55, 0.4)),
+              url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=1920');
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.landmark-info {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: rgba(13, 13, 18, 0.85);
+  border: 2px solid #b8956a;
+  box-shadow:
+    0 0 40px rgba(180, 149, 106, 0.3),
+    inset 0 0 40px rgba(180, 149, 106, 0.1);
+  max-width: 800px;
+  margin: 0 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.landmark-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.landmark-detail {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #b8956a;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.landmark-desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e8e4d9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Final Quote Section */
+.section-final {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #0d0d12 0%, #1a1a25 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-quote-wrapper {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.quote-ornament {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b8956a, transparent);
+  margin: 2rem auto;
+}
+
+.final-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #f5f0e6;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.quote-attribution {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #b8956a;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+  background: #08080a;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid #3a3a45;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-ornament {
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b8956a, #d4af37, #b8956a, transparent);
+  margin: 1rem auto;
+  box-shadow: 0 0 10px rgba(180, 149, 106, 0.4);
+}
+
+.footer-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #8b7355;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .landmark-image {
+    padding: 2rem;
+  }
+
+  .landmark-content {
+    padding: 4rem 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .text-content p {
+    font-size: 1.05rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .main-title {
+    font-size: 4rem;
+    letter-spacing: 0.2em;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .landmark-silhouette {
+    opacity: 0.1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 2.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Stack layout on mobile */
+  .landmark-section.image-left,
+  .landmark-section.image-right {
+    flex-direction: column;
+  }
+
+  .landmark-image {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .landmark-image img {
+    max-height: 40vh;
+  }
+
+  .landmark-content {
+    padding: 3rem 2rem;
+    min-height: auto;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .text-content p:first-of-type::first-letter {
+    font-size: 3rem;
+  }
+
+  .final-quote {
+    font-size: 1.5rem;
+  }
+
+  .landmark-name {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .landmark-desc {
+    font-size: 1rem;
+  }
+
+  .landmark-info {
+    padding: 2rem 1.5rem;
+  }
+
+  .landmark-silhouette {
+    display: none;
+  }
+
+  .parallax-break {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .landmark-image {
+    height: 40vh;
+  }
+
+  .landmark-image img {
+    max-height: 30vh;
+  }
+
+  .landmark-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .text-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .text-content p:first-of-type::first-letter {
+    font-size: 2.5rem;
+  }
+
+  .final-quote {
+    font-size: 1.2rem;
+  }
+
+  .landmark-name {
+    font-size: 1.4rem;
+  }
+
+  .landmark-info {
+    padding: 1.5rem 1rem;
+  }
+
+  .parallax-break {
+    height: 40vh;
+  }
+}
