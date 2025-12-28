@@ -37,26 +37,42 @@ $(document).ready(function() {
     });
 
     // image sections
-    $('.landmark-section').each(function() {
+    $('.landmark-section').each(function(index) {
       var sectionOffset = $(this).offset().top;
       var sectionHeight = $(this).outerHeight();
       var sectionScroll = scrolled - sectionOffset;
       var sectionProgress = sectionScroll / sectionHeight;
+      var sectionMiddle = scrolled - sectionOffset + (windowHeight / 2);
+      var distanceFromCenter = Math.abs(sectionMiddle - (sectionHeight / 2));
+      var centerProgress = 1 - Math.min(distanceFromCenter / (sectionHeight / 2), 1);
 
       if (sectionScroll > -windowHeight && sectionScroll < windowHeight + sectionHeight) {
+        var $section = $(this);
         var $image = $(this).find('.landmark-image img');
+        var $imageContainer = $(this).find('.landmark-image');
         var $content = $(this).find('.content-inner');
 
+        var scale = 0.85 + (centerProgress * 0.15);
         var imageOffset = (sectionProgress - 0.5) * 50;
+        var imageOpacity = Math.max(0.4, centerProgress);
+
         $image.css({
-          'transform': 'translateY(' + imageOffset + 'px) scale(1)',
-          'transition': 'transform 0.1s ease-out'
+          'transform': 'translateY(' + imageOffset + 'px) scale(' + scale + ')',
+          'opacity': imageOpacity,
+          'transition': 'transform 0.1s ease-out, opacity 0.3s ease-out'
         });
-        var contentOpacity = Math.min(Math.max((windowHeight + sectionScroll - 200) / 400, 0), 1);
-        var contentOffset = Math.max(50 - ((windowHeight + sectionScroll) / 10), 0);
+
+        var slideOffset = (1 - centerProgress) * 100;
+        if ($section.hasClass('image-left')) {
+          $imageContainer.css('transform', 'translateX(' + (-slideOffset) + 'px)');
+          $content.css('transform', 'translateX(' + slideOffset + 'px)');
+        } else {
+          $imageContainer.css('transform', 'translateX(' + slideOffset + 'px)');
+          $content.css('transform', 'translateX(' + (-slideOffset) + 'px)');
+        }
 
         $content.find('.location-tag, .section-title, .year-tag, .text-content p').each(function(index) {
-          var elementOpacity = Math.min(Math.max((windowHeight + sectionScroll - 250 - (index * 50)) / 300, 0), 1);
+          var elementOpacity = Math.min(Math.max((windowHeight + sectionScroll - 250 - (index * 50)) / 300, 0), 1) * centerProgress;
           var elementOffset = Math.max(40 - ((windowHeight + sectionScroll - (index * 30)) / 10), 0);
 
           $(this).css({
